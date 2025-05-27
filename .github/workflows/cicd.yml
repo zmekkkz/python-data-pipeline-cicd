@@ -48,4 +48,6 @@ jobs:
           script: |
             cd /home/Zmekk/python-data-pipeline-cicd
             git pull origin main
-            bash deploy.sh
+            pip install -r requirements.txt
+            pkill -f main.py || true
+            nohup python main.py &
