@@ -46,6 +46,6 @@ jobs:
           key: ${{ secrets.VM_SSH_KEY }}
           port: ${{ secrets.VM_PORT }}
           script: |
-            cd /path/to/your/project
+            cd /home/Zmekk/python-data-pipeline-cicd
             git pull origin main
             bash deploy.sh
