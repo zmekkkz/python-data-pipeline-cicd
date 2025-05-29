@@ -12,7 +12,7 @@ def transform(data) -> pd.DataFrame:
     return df
 
 def load(data):
-    data.to_csv('population_data.csv', index=False)
+    data.to_csv('population_data_test.csv', index=False)
     print("Data loaded into population_data.csv")
 def main():
     print("Starting data pipeline...")
