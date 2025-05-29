@@ -49,12 +49,12 @@ def test_load_creates_csv(tmp_path):
     }])
     with patch('main.print'):
         main.load(df)
-    assert os.path.exists('population_data_test.csv')
+    assert os.path.exists('population_data.csv')
     # Optionally, check contents
-    loaded = pd.read_csv('population_data_test.csv')
+    loaded = pd.read_csv('population_data.csv')
     assert loaded.iloc[0]['Nation'] == "United States"
     # Clean up
-    os.remove('population_data_test.csv')
+    os.remove('population_data.csv')
 
 def test_main_pipeline(monkeypatch):
     sample_data = [{
