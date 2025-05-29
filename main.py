@@ -1,17 +1,19 @@
-import time
+import pandas as pd
+import requests
 
-def extract():
-    print("Extracting data...")
-    return [1, 2, 3, 4, 5]
+def extract() -> list:
+    req = requests.get("https://datausa.io/api/data?drilldowns=Nation&measures=Population")
+    data_json = req.json()
+    data = data_json['data']
+    return data
 
-def transform(data):
-    print("Transforming data...")
-    return [x * 2 for x in data]
+def transform(data) -> pd.DataFrame:
+    df = pd.DataFrame(data)
+    return df
 
 def load(data):
-    print("Loading data...")
-    print("Loaded data:", data)
-
+    data.to_csv('population_data.csv', index=False)
+    print("Data loaded into population_data.csv")
 def main():
     print("Starting data pipeline...")
     data = extract()
